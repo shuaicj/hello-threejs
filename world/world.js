@@ -5,25 +5,26 @@ function World(domId) {
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     //renderer.setClearColor(0x87CEFA);
-    renderer.setClearColor(0xffffff);
+    //renderer.setClearColor(0xffffff);
     //renderer.shadowMap.enabled = true;
     //renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     dom.appendChild(renderer.domElement);
 
     var camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
     //camera.position.set(0, 0, 1000);
-    camera.position.set(0, 0, 3);
+    camera.position.set(-1, -5, 3);
     camera.up.set(0, 0, 1);
-    camera.lookAt(new THREE.Vector3(1, 0, camera.position.z));
+    //camera.lookAt(new THREE.Vector3(1, 0, camera.position.z));
+    camera.lookAt(new THREE.Vector3(0, 0, camera.position.z));
 
     if (typeof Stats === 'function') {
         var stats = new Stats();
         dom.appendChild(stats.dom);
     }
 
-    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    scene.add(new THREE.AmbientLight(0xffffff, 0.2));
 
-    var light = new THREE.DirectionalLight(0xffffff, 0.8);
+    var light = new THREE.DirectionalLight(0xffffff, 0.6);
     light.position.set(-160, -160, 400);
     //light.castShadow = true;
     //light.shadow.camera.near = 0.1; // 0.5
@@ -39,8 +40,12 @@ function World(domId) {
     //var helper = new THREE.CameraHelper(light.shadow.camera);
     //scene.add(helper);
 
-    var controls = new THREE.OrbitControls(camera, renderer.domElement);
-    //controls.target.copy(new THREE.Vector3(10, 0, camera.position.z));
+    var axisHelper = new THREE.AxisHelper(10);
+    scene.add(axisHelper);
+
+    if (THREE.OrbitControls) {
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    }
 
     var frameListeners = [];
 
