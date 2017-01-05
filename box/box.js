@@ -1,7 +1,8 @@
 function Box() {
+    var color = Math.ceil(Math.random() * 0xffffff);
     this.view = new THREE.Mesh(
         new THREE.BoxGeometry(1, 1, 1), 
-        new THREE.MeshPhongMaterial({color: 0x00ff00})
+        new THREE.MeshPhongMaterial({color: color})
     );
     this.view.position.z = 1;
 }

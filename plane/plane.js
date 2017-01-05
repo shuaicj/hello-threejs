@@ -1,7 +1,8 @@
 function Plane() {
+    var color = Math.ceil(Math.random() * 0xffffff);
     this.view = new THREE.Mesh(
         new THREE.PlaneGeometry(3, 3), 
-        new THREE.MeshPhongMaterial({color: 0xff3333, side: THREE.DoubleSide})
+        new THREE.MeshPhongMaterial({color: color, side: THREE.DoubleSide})
     );
     this.view.position.z = 1;
 }

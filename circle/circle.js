@@ -1,7 +1,8 @@
 function Circle() {
+    var color = Math.ceil(Math.random() * 0xffffff);
     this.view = new THREE.Mesh(
         new THREE.CircleGeometry(1, 32), 
-        new THREE.MeshPhongMaterial({color: 0x654655, side: THREE.DoubleSide})
+        new THREE.MeshPhongMaterial({color: color, side: THREE.DoubleSide})
     );
     this.view.position.z = 1;
 }

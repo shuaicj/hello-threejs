@@ -1,7 +1,8 @@
 function Sphere() {
+    var color = Math.ceil(Math.random() * 0xffffff);
     this.view = new THREE.Mesh(
         new THREE.SphereGeometry(1, 100, 100), 
-        new THREE.MeshPhongMaterial({color: 0x987676})
+        new THREE.MeshPhongMaterial({color: color})
     );
     this.view.position.z = 1;
 }
