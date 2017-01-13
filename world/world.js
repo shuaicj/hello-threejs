@@ -6,8 +6,6 @@ function World(domId) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     //renderer.setClearColor(0x87CEFA);
     //renderer.setClearColor(0xffffff);
-    //renderer.shadowMap.enabled = true;
-    //renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     dom.appendChild(renderer.domElement);
 
     var camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
@@ -25,20 +23,8 @@ function World(domId) {
     scene.add(new THREE.AmbientLight(0xffffff, 0.2));
 
     var light = new THREE.DirectionalLight(0xffffff, 0.6);
-    light.position.set(-160, -160, 400);
-    //light.castShadow = true;
-    //light.shadow.camera.near = 0.1; // 0.5
-    //light.shadow.camera.far = 750; // 500
-    //light.shadow.camera.right = 300; // 5
-    //light.shadow.camera.left = -300; // -5
-    //light.shadow.camera.top = 300; // 5
-    //light.shadow.camera.bottom = -300; // -5
-    //light.shadow.mapSize.width = 4096; // 512
-    //light.shadow.mapSize.height = 4096; // 512
+    light.position.set(-4, -4, 10);
     scene.add(light);
-
-    //var helper = new THREE.CameraHelper(light.shadow.camera);
-    //scene.add(helper);
 
     var axisHelper = new THREE.AxisHelper(10);
     scene.add(axisHelper);
@@ -74,6 +60,7 @@ function World(domId) {
     this.scene = scene;
     this.renderer = renderer;
     this.camera = camera;
+    this.light = light;
     this.frameListeners = frameListeners;
 }
 

@@ -5,6 +5,7 @@ function Box() {
         new THREE.MeshPhongMaterial({color: color})
     );
     this.view.position.z = 1;
+    this.view.castShadow = true;
 }
 
 Box.prototype.addToWorld = function(world) {
