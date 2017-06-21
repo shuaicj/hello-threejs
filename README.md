@@ -1,6 +1,5 @@
 # Hello three.js!
 
-#### Description
 Examples for learning Three.js
 
 #### How to run
