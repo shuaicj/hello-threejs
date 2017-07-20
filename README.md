@@ -1,4 +1,4 @@
-# Hello three.js!
+# Three.js Examples
 
 Examples for learning Three.js
 
